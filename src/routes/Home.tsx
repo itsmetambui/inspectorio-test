@@ -18,9 +18,9 @@ export default function Home() {
           Tap the username to see more information
         </Typography>
 
-        <Box display="flex" gap={1} mt={2}>
+        <Box display="flex" gap={1} mt={2} flexWrap="wrap">
         {topFive.map(user => (
-          <Button component={Link} to={`/user/${user}`} variant="contained">{user}</Button>
+          <Button key={user} component={Link} to={`/user/${user}`} variant="contained">{user}</Button>
         ))}
         </Box>
       </Box>
