@@ -1,4 +1,6 @@
-# Create React App example with TypeScript
+# Inspectorio test
+
+Check it out live at https://inspectorio-test.vercel.app/
 
 ## How to use
 
