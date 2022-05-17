@@ -6,7 +6,12 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Divider  from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import { grey } from '@mui/material/colors';
+import { Link } from "react-router-dom";
 
 import { User } from '../types/user';
 
@@ -42,8 +47,30 @@ export default function UserPage() {
   )
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
+    <Box>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="back"
+            component={Link}
+            to="/"
+            sx={{
+              zIndex: 1
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: "center", position: "absolute", left: 0, width: "100%" }}>
+            Person
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      <Container maxWidth="sm">
+        <Box sx={{ my: 4 }}>
         {isLoading ? (
           <p>Loading...</p>
         ) : error || !data ? (
@@ -51,7 +78,8 @@ export default function UserPage() {
         ) : (
           <UserBox avatarUrl={data.avatar_url} username={data.login} location={data.location} />
         )}
-      </Box>
-    </Container>
+        </Box>
+      </Container>
+    </Box>
   )
 }
