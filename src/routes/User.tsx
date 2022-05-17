@@ -12,6 +12,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { grey } from '@mui/material/colors';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { User } from '../types/user';
 
@@ -48,6 +49,10 @@ export default function UserPage() {
 
   return (
     <Box>
+      <Helmet>
+        <title>{username}</title>
+      </Helmet>
+
       <AppBar position="static">
         <Toolbar>
           <IconButton
